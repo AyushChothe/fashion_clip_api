@@ -11,8 +11,6 @@ from fastapi.responses import JSONResponse
 from PIL import Image
 from pydantic import BaseModel
 
-model = FashionCLIP("fashion-clip")
-
 app = FastAPI()
 
 
@@ -61,6 +59,9 @@ async def main(body: CreateEmbeddingRequest):
         JSONResponse: A JSON response containing the image embedding.
     """
     begin = perf_counter_ns()
+
+    # Load fashion-clip Model
+    model = FashionCLIP("fashion-clip")
 
     # Download the images asyncronously
     images = []
