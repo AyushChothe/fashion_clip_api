@@ -58,6 +58,7 @@ async def main(body: CreateEmbeddingRequest):
     Returns:
         JSONResponse: A JSON response containing the image embedding.
     """
+
     begin = perf_counter_ns()
 
     # Load fashion-clip Model
